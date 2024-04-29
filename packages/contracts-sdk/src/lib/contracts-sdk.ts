@@ -45,6 +45,7 @@ import * as stakingBalancesContract from '../abis/StakingBalances.sol/StakingBal
 import { TokenInfo, derivedAddresses } from './addresses';
 import { IPubkeyRouter } from '../abis/PKPNFT.sol/PKPNFT';
 import { computeAddress } from 'ethers/lib/utils';
+import { CID } from 'multiformats/cid';
 import { getAuthIdByAuthMethod } from './auth-utils';
 import { Logger, LogManager } from '@lit-protocol/logger';
 import {
@@ -55,13 +56,6 @@ import {
 
 const DEFAULT_RPC = 'https://chain-rpc.litprotocol.com/http';
 const BLOCK_EXPLORER = 'https://chain.litprotocol.com/';
-
-let CID: any;
-try {
-  CID = require('multiformats/cid');
-} catch (e) {
-  console.log('CID not found');
-}
 
 // This function asynchronously executes a provided callback function for each item in the given array.
 // The callback function is awaited before continuing to the next iteration.
